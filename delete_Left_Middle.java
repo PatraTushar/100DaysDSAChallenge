@@ -28,16 +28,16 @@ public class Q10 {
         //Time Complexity (TC): O(n)
         //Space Complexity (SC): O(1)
 
+        if(head==null) return null;
+        if(head.next==null) return head;
+        if(head.next.next==null) return head.next;
+
         Node slow=head;
-        Node fast=head;
+        Node fast=head.next.next;
 
-        if(fast.next==null) return null;
-        if(fast.next.next==null) {
-            head=head.next;
-            return head;
-        }
 
-        while ( fast.next!=null && fast.next.next!=null && fast.next.next.next!=null){
+
+        while ( fast.next!=null && fast.next.next!=null){
             slow=slow.next;
             fast=fast.next.next;
         }
@@ -69,12 +69,8 @@ public class Q10 {
 
         display(a);
         Node Ans=deleteLeftMiddle(a);
-        if(Ans==null){
-            System.out.println(" Empty list ");
-        }
-        else {
-            display(a);
-        }
+        display(Ans);
+
 
 
     }
